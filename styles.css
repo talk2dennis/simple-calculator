@@ -36,7 +36,7 @@ h2 {
 }
 
 #calculator {
-    width: 500px;
+    max-width: 500px;
     margin: auto;
     padding: 0;
     border: #333 1px solid;

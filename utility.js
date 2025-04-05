@@ -56,12 +56,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             } else if (['+', '-', '*', '/'].includes(value)) {
                 // get the current value
-                const currentValue = document.querySelector('#result').value;
+                const currentValue = document.querySelector('#result').value.trim();
                 // If the value is an operator, check if the current value is empty
                 if (currentValue === '0') {
                     return;
                 }
                 // If the value is an operator, check if the last character is an operator
+                const lastChar = currentValue.trim().split(' ').pop();
+                if (['+', '-', '*', '/'].includes(lastChar)) {
+                    console.log('lastChar', lastChar);
+                    // If the last character is an operator, replace it with the new operator
+                    document.querySelector('#result').value = currentValue.trim().slice(0, -lastChar.length -1) + ` ${value} `;
+                    return;
+                }
                 // If the value is an operator, add it to the input
                 document.querySelector('#result').value += ` ${value} `;
             } else if (value === '.') {
