@@ -67,11 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (value === '.') {
                 // if the current value has a decimal point, return
                 const currentValue = document.querySelector('#result').value.split(' ').pop();
+                console.log(currentValue);
                 if (currentValue.includes('.')) {
                     return;
                 }
                 document.querySelector('#result').value += value;
-
             } else if (value === 'C') {
                 // If the value is 'C', clear the input
                 document.querySelector('#result').value = 0;
